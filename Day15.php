@@ -55,10 +55,10 @@ echo "<br> biến sau khi gọi hàm: $number";
 
 //Nhúng thẻ Include cho chạy code phía sau nếu bị lỗi
 //Nhúng thẻ Require không cho chạy code phía sau, chặt chẽ hơn
-include 'file1.php';
-include 'file1.php';
-include_once 'file1.php';//gọi nhiều lần nhưng chỉ dùng được 1 lần
-require 'file1.php';
+include 'process.php';
+include 'process.php';
+include_once 'process.php';//gọi nhiều lần nhưng chỉ dùng được 1 lần
+require 'process.php';
 echo "<h3>Nội dung thẻ </h3>";
 
 
