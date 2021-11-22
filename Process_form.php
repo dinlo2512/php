@@ -6,7 +6,8 @@ $result="";
 
 echo "<pre>";
 print_r($_POST);
-echo "<pre>";
+echo "</pre>";
+
 //+b3 Xử lý submit form khi user đã submit/ gửi form, đựa vào name của nut submit trong mảng
 //ktr phần tử mảng isset
 if(isset($_POST['show'])){

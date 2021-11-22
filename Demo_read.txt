@@ -1,0 +1,4 @@
+Nội dung dòng 1 Demo_read.txt
+Nội dung dòng 2 Demo_read.txt
+Nội dung dòng 3 Demo_read.txt
+Nội dung dòng 4 Demo_read.txtNội dung được ghi nốiNội dung được ghi nốiNội dung được ghi nốiNội dung được ghi nốiNội dung được ghi nối
