@@ -78,5 +78,5 @@ if (isset($_POST['submit'])) {
     <input type="file" name="avatar">
     <br>
     <input type="submit" name="submit" value="Upload">
-    <h3><?php echo $result;?></h3>
+    <h3><?php echo $result; ?></h3>
 </form>
