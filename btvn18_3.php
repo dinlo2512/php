@@ -1,8 +1,7 @@
 <?php
     $error1 = ''; $error2 = ''; $error3 = ''; $error4= ''; $error5 ='';
     $result = '';
-    $url = '';
-    $type = 'hidden';
+
     if (isset($_POST['submit'])){
         $username = $_POST['username'];
         $email = $_POST['Email'];

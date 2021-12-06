@@ -1,8 +1,6 @@
 <?php
     $error = '';
    $result ='';
-   $url = '';
-   $type = 'hidden';
 if (isset($_POST['submit'])){
     $img = $_FILES['image'];
     if ($img['error']==0){
@@ -33,8 +31,8 @@ if (isset($_POST['submit'])){
         }
         $name = time() . "" .$img['name'];
         move_uploaded_file($img['tmp_name'],"$dir_upload/$name");
-        $url = $dir_upload . '/' . $name;
-        $type = '';
+        $result .= "<br>Avatar: <img src='$dir_upload/$name' >";
+
     }
 
 }
@@ -74,7 +72,5 @@ if (isset($_POST['submit'])){
     <p>Only jpg,png,jpeg and gif with maximum size of 1MB is allowed</p>
         <input type="submit" name="submit" value="upload">
     </form>
-    <span <?php echo $type; ?>>ảnh được tải lên: </span>
-    <img src="<?php echo $url; ?>" alt="" <?php echo $type ?> >
     <p><?php echo $result;?></p>
 </div>
