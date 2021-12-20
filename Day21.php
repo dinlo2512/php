@@ -56,5 +56,46 @@ const DB_PASSWORD = '';
 const DB_NAME = 'db_demo_join';
 //cổng kết nối
 const DB_PORT = 3306;
+
 //kết nối csdl và thực hiện truy vấn
 $connection = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_NAME,DB_PORT);
+if (!$connection){
+    die("Lỗi kết nối" .mysqli_connect_error());
+}
+echo "<h2>Kết nối CSDL thành công</h2>";
+
+//INSERT, UPDATE, SELECT
+//B1: Viết câu truy vấn
+//$sql_insert = "INSERT INTO products(name, price, description) VALUES('Máy tính DELL', 2000, 'Mô tả máy tính dell')";
+//$is_insert = mysqli_query($connection, $sql_insert);//B2: thực thi truy vấn
+
+
+//select nhiều bản ghi:
+$sql_select = "SELECT * FROM products ORDER BY created_at desc ";
+$select_all = mysqli_query($connection, $sql_select);
+//echo "<pre>";
+//print_r($select_all);
+//echo "</pre>";
+//B3: Lấy mảng kết hợp nhiều phần tử
+$products = mysqli_fetch_all($select_all, MYSQLI_ASSOC);
+echo "<pre>";
+print_r($products);
+echo "</pre>";
+
+//Select 1 bản ghi
+$sql_select = "SELECT * FROM products WHERE id = 1 ";
+$select_one = mysqli_query($connection,$sql_select);
+$product  = mysqli_fetch_assoc($select_one);
+echo "<pre>";
+print_r($product);
+echo "</pre>";
+
+//UPDATE
+$sql_update = "UPDATE products SET name = 'new name', price = 10001 WHERE id =4";
+$is_update = mysqli_query($connection,$sql_update);
+//var_dump($is_update);//true
+
+//DELETE
+$sql_delete = "DELETE FROM products WHERE id = 12";
+$is_delete = mysqli_query($connection,$sql_delete);
+//var_dump($is_delete);//true
