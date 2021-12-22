@@ -78,7 +78,7 @@ echo $mul;
 
 //hàm tính tổng giá trị mảng
 $arrs = [12,50,60,90,12,25,60];
-$sum - array_sum($arrs);
+$sum = array_sum($arrs);
 //kiểm tra key có tồn tại trong mảng hay không
 $test =  array_key_exists('name',$arrs);//false
 
