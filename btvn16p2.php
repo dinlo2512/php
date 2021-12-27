@@ -29,7 +29,7 @@ echo "</pre>";
 function upperCase($arrs){
     $new = [];
     foreach ($arrs as $key => $value){
-        if (ctype_lower($value)){
+        if (ctype_upper($value)){
             $new[$key] = $value;
         }else{
             $new[$key] = strtoupper($value);

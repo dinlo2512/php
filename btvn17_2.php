@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
         <table>
             <tr>
                 <td class="first">Firstname:</td>
-                <td><input type="text" name="first" value="<?php echo isset($_POST['first']) ? $_POST['first'] : ''; ?> "></td>
+                <td><input type="text" name="first" value="<?php echo isset($_POST['first']) ? $_POST['first'] : ''; ?>"></td>
             </tr>
             <tr>
                 <td></td>

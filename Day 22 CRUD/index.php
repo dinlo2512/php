@@ -30,27 +30,23 @@ if (isset($_SESSION['error'])){
 ?>
 <a href="create.php">Thêm mới sản phẩm</a>
 <h2>Danh sách sản phẩm</h2>
+<form action="delete_multiple.php" method="get">
+    <input type="submit" name="delete" value="Xóa nhiều bản ghi"
+    onclick="return confirm('Bạn có chắc muốn xóa nhiều bản ghi này')">
+    <br>
+    <br>
 <table border="1" cellpadding="1" cellpadding="9">
     <tr>
+        <th><input type="checkbox" id="check-all"></th>
         <th>ID</th>
         <th>NAME</th>
         <th>PRICE</th>
         <th>DESCRIPTION</th>
-        <th>CREATED_AT</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>name 1</td>
-        <td>1.000.000 vnđ</td>
-        <td>des1</td>
-        <td>20/12/2021 21:50:32</td>
-        <td>
-            <a href="#">Sửa</a>
-            <a href="#" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</a>
-        </td>
+        <th>CREATE_AT</th>
     </tr>
 <?php foreach ($products as $value): ?>
     <tr>
+        <td><input type="checkbox" name="checks[]" class="checkbox-item" value="<?php echo $value['id'];?>"></td>
         <td><?php echo $value['id'];?></td>
         <td><?php echo $value['name'];?></td>
         <td><?php echo number_format($value['price'], 0, '.','.');?> vnđ</td>
@@ -64,3 +60,23 @@ if (isset($_SESSION['error'])){
     </tr>
 <?php endforeach;?>
 </table>
+</form>
+
+<h4><a href="list.html">LIST AJAX</a></h4>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    //đảm bảo code js luôn chạy sau cùng.
+
+    $(document).ready(function (){
+    var selectorCheckall = $('#check-all');
+    selectorCheckall.click(function (){
+        //kiểm tra checked của check all
+        var isChecked = $(this).prop('checked');
+        if (isChecked){
+            $('.checkbox-item').prop('checked',true);
+        }else{
+            $('.checkbox-item').prop('checked', false);
+        }
+    });
+    })
+</script>
