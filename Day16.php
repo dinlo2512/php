@@ -24,7 +24,7 @@ foreach ($arr as $key => $value)
 }
 //foreach dạng khuyết
 foreach($arr as $value){
-    echo$value;
+    echo $value;
 }
 
 //phân loại mảng
