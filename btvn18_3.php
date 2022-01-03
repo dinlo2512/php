@@ -51,6 +51,7 @@
             move_uploaded_file($ava['tmp_name'],"$dir_upload/$name");
             $url = $dir_upload . '/' . $name;
             $type = '';
+            $result .= "<br>Avatar: <img src='$dir_upload/$name' >";
         }
 
     }
@@ -101,9 +102,9 @@
 <div class="form">
     <form action="" method="post" enctype="multipart/form-data">
         <h2>Create an account</h2>
-        <input type="text" name="username" placeholder="Username" value=" <?php echo isset($_POST['username']) ? $_POST['username'] : '';?> "><br>
+        <input type="text" name="username" placeholder="Username" value="<?php echo isset($_POST['username']) ? $_POST['username'] : '';?> "><br>
         <p class="error"><?php echo $error1?></p>
-        <input type="text" name="Email" placeholder="Email" value=" <?php echo isset($_POST['Email']) ? $_POST['Email'] : '';?> "><br>
+        <input type="text" name="Email" placeholder="Email" value="<?php echo isset($_POST['Email']) ? $_POST['Email'] : '';?> "><br>
         <p class="error"><?php echo $error2?></p>
         <input type="password" name="pass" placeholder="Password" ><br>
         <p class="error"><?php echo $error3?></p>
@@ -114,5 +115,5 @@
         <input type="submit" name="submit" value="Register">
     </form>
         <h3 class="result"><?php echo $result;?></h3>
-    <img src="<?php echo $url;?>" alt="">
+
 </div>
