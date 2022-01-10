@@ -15,29 +15,31 @@ $value = mysqli_fetch_assoc($obj_select);
 
 ?>
 <div>
-        <h1>View Record</h1>
-        <hr>
+    <h1>View Record</h1>
+    <hr>
 
-        <h3><b>ID</b></h3>
-        <p class="items"><?php echo $value['id']; ?></p>
-        <h3><b>Name</b></h3>
-        <p class="items"><?php echo $value['name']; ?></p>
-        <h3><b>Description</b></h3>
-        <p class="items"><?php echo $value['description']; ?></p>
-        <h3><b>Salary</b></h3>
-        <p class="items"><?php echo $value['salary']; ?></p>
-        <h3><b>Gender</b></h3>
-        <p class="items"><?php echo $value['gender']; ?></p>
-        <h3><b>Birthday</b></h3>
-        <p class="items"><?php echo date('d-m-Y', strtotime($value['birthday']));?></p>
-        <h3><b>Created_at</b></h3>
-        <p class="items"><?php echo date('d-m-Y', strtotime($value['created_at']));?></p>
+    <h3><b>ID</b></h3>
+    <p class="items"><?php echo $value['id']; ?></p>
+    <h3><b>Name</b></h3>
+    <p class="items"><?php echo $value['name']; ?></p>
+    <h3><b>Image</b></h3>
+    <img src="upload/<?php echo $value['image']; ?>" width="150px" height="150px" <?php if (empty($value['image'])){echo 'hidden';}?> >
+    <h3><b>Description</b></h3>
+    <p class="items"><?php echo $value['description']; ?></p>
+    <h3><b>Salary</b></h3>
+    <p class="items"><?php echo $value['salary']; ?></p>
+    <h3><b>Gender</b></h3>
+    <p class="items"><?php echo $value['gender']; ?></p>
+    <h3><b>Birthday</b></h3>
+    <p class="items"><?php echo date('d-m-Y', strtotime($value['birthday'])); ?></p>
+    <h3><b>Created_at</b></h3>
+    <p class="items"><?php echo date('d-m-Y', strtotime($value['created_at'])); ?></p>
 
 
     <a href="index.php" id="button">Back </a>
 </div>
 <style>
-    #button{
+    #button {
         text-decoration: none;
         border: solid 1px dodgerblue;
         background: dodgerblue;

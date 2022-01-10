@@ -18,19 +18,25 @@ $values = mysqli_fetch_all($obj_select, MYSQLI_ASSOC);
 
 ?>
 <link rel="stylesheet" type="text/css" href="fontawesome-5.web/css/all.min.css">
+<!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"-->
+<!--      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
 <?php if (isset($_SESSION['success'])) {
     echo "<h3>{$_SESSION['success']}</h3>";
     unset($_SESSION['success']);
-} ?>
+}
+
+?>
 <h1> Welcome <?php echo $_SESSION['username']; ?> to index.php</h1>
 <div class="container">
     <h2> Employees List</h2>
     <button id="add"><a href="create.php">+ Add New Employee</a></button>
+    <button id="add"><a href="register.php">+ Add New Login</a></button>
     <hr>
     <table border="1" cellpadding="9" cellspacing="0">
         <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Image</th>
             <th>Description</th>
             <th>Salary</th>
             <th>Gender</th>
@@ -42,6 +48,7 @@ $values = mysqli_fetch_all($obj_select, MYSQLI_ASSOC);
             <tr>
                 <td><?php echo $value['id']; ?></td>
                 <td><?php echo $value['name']; ?></td>
+                <td><img src="upload/<?php echo $value['image'];?>" width="50px" height="50px" <?php if (empty($value['image'])){echo 'hidden';}?> ></td>
                 <td><?php echo $value['description']; ?></td>
                 <td><?php echo $value['salary']; ?></td>
                 <td><?php if ($value['gender'] == 1) {
@@ -49,11 +56,12 @@ $values = mysqli_fetch_all($obj_select, MYSQLI_ASSOC);
                     } else {
                         echo 'Female';
                     }; ?></td>
-                <td><?php echo date('d-m-Y', strtotime($value['birthday']));?></td>
-                <td><?php echo date('d-m-Y H:i:s', strtotime($value['created_at']));?></td>
+                <td><?php echo date('d-m-Y', strtotime($value['birthday'])); ?></td>
+                <td><?php echo date('d-m-Y H:i:s', strtotime($value['created_at'])); ?></td>
                 <td><a href="view.php?id=<?php echo $value['id']; ?>"><i class="fas fa-eye"></i></a>
                     <a href="update.php?id=<?php echo $value['id']; ?>"><i class="fas fa-pencil-alt"></i></a>
-                    <a href="delete.php?id=<?php echo $value['id']; ?>" onclick="return confirm('Are you sure ?')"><i class="fas fa-trash-alt"></i></a>
+                    <a href="delete.php?id=<?php echo $value['id']; ?>" onclick="return confirm('Are you sure ?')"><i
+                                class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -79,10 +87,12 @@ $values = mysqli_fetch_all($obj_select, MYSQLI_ASSOC);
     h2 {
         display: inline;
     }
-    #add a{
+
+    #add a {
         text-decoration: none;
         color: white;
     }
+
     a {
         margin-right: 15px;
     }
