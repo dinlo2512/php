@@ -14,13 +14,30 @@ class Product{
         $is_insert = mysqli_query($connection,$sql_insert);
         return $is_insert;
     }
-    public function editProduct()
+    public function editProduct($id)
     {
+        $connection = $this->getConnection();
 
+        $sql_update = "UPDATE products SET name = '$this->name', price = $this->price WHERE id = $id";
+        $is_update = mysqli_query($connection,$sql_update);
+
+        if ($is_update){
+            echo "cập nhật thành công!";
+        }else{
+            echo " thất bại";
+        }
     }
-    public function deleteProduct()
+    public function deleteProduct($id)
     {
+        $connection = $this->getConnection();
 
+        $sql_delete = "DELETE FROM products WHERE id = $id";
+        $is_delete = mysqli_query($connection,$sql_delete);
+        if ($is_delete){
+            echo "Xóa thành công!";
+        }else{
+            echo "Xóa thất bại";
+        }
     }
 
     public function listProducts()
@@ -58,7 +75,15 @@ print_r($product);
 echo "</pre>";
 
 
-$product->name = 'Sản phẩm 1';
-$product->price = 30000;
+//$product->name = 'Sản phẩm 1';
+//$product->price = 30000;
+//
+//$is_insert = $product->addProduct();
 
-$is_insert = $product->addProduct();
+//$id = 15;
+//$is_delete = $product->deleteProduct($id);
+
+$id = 16;
+$product->name = 'Đinh Hoàng Long';
+$product->price = 12513;
+$adv = $product->editProduct($id);
