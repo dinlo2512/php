@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
 ?>
 <div>
     <form action="" method="post" enctype="multipart/form-data">
-        <h1>Update Record</h1>
+        <h1>Create Record</h1>
         <hr>
         <p style="color: #ff253a"><?php echo $error; ?></p>
         <h3><b>Name</b></h3>
