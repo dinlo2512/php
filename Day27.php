@@ -17,7 +17,7 @@
  *                  /style.css
  *              /js: file js của hệ thống
  *                  /script.js
- *              /image: chứa các ảnh tĩnh
+ *              /images: chứa các ảnh tĩnh
  *      /config: cấu hình hệ thống CSDL,...
  *              /Database.php: Class chứa cấu hình CSDL
  *      /Controllers: chứa các Class controller - C
