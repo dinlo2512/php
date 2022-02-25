@@ -5,16 +5,16 @@
 <form action="" method="post">
     <div class="md-3">
         <label for="form-title">Tên sản phẩm</label>
-        <input type="text" name="name" value="">
+        <input class="form-control" type="text" name="name" value="">
 
     </div>
     <div class="md-3">
         <label for="">Giá sản phẩm</label>
-        <input type="text" name="price" value="">
+        <input class="form-control" type="text" name="price" value="">
 
     </div>
-
-    <input type="submit" name="submit" value="Lưu sản phẩm">
-    <a href="index.php?controller=product&action=index">HỦY</a>
+    <br>
+    <input type="submit" name="submit" value="Lưu sản phẩm" class="btn btn-primary">
+    <a href="index.php?controller=product&action=index" class="btn btn-danger">HỦY</a>
 </form>
 </div>

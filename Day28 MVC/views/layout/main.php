@@ -16,6 +16,16 @@
     </div>
     <h3 style="color: red"><?php echo $this->error; ?></h3>
     <div class="main" style="border: 1px solid red">
+        <h3 style="color:greenyellow"><?php if (isset($_SESSION['success'])){
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+            }
+            ?></h3>
+        <h3 style="color: red"><?php if (isset($_SESSION['error'])){
+                echo $_SESSION['error'];
+                unset($_SESSION['error']);
+            }
+            ?></h3>
         <?php echo $this->content;?>
     </div>
 
